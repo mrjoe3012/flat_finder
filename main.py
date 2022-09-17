@@ -3,6 +3,7 @@ from NotificationService import *
 from CacheService import *
 from Property import *
 import time, sys
+from datetime import datetime
 
 class App:
     def __init__(self, refreshRate):
@@ -30,13 +31,16 @@ class App:
         ids = [x.id for x in properties]
         self.cacheService.get("notifiedProperties").extend(ids)
 
+    def _getTimestamp(self):
+        return str(datetime.now())
+
     def run(self):
         while True:
             properties = []
             for s in self.webScanners:
                 properties += s.scan()
             newProperties = self._getNewProperties(properties)
-            print("App: Found {0} new properties.".format(len(newProperties)))
+            print("App: [{0}] Found {1} new properties.".format(self._getTimestamp(), len(newProperties)))
             if len(newProperties) > 0:
                 self._notifyAboutProperties(newProperties)
                 self._updateCachedProperties(newProperties)
