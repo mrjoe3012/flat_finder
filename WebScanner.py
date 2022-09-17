@@ -14,7 +14,7 @@ class WebScanner(ABC):
 
 class RightMoveScanner(WebScanner):
     def __init__(self):
-        self.url = "https://www.rightmove.co.uk/property-to-rent/find.html?minBedrooms=2&maxBedrooms=2&keywords=&sortType=6&includeLetAgreed=false&viewType=LIST&channel=RENT&index=0&maxPrice=1000&radius=1.0&maxDaysSinceAdded=1&locationIdentifier=REGION%5E93616"
+        self.url = "https://www.rightmove.co.uk/property-to-rent/find.html?minBedrooms=2&maxBedrooms=2&keywords=&sortType=6&includeLetAgreed=false&viewType=LIST&channel=RENT&index=0&maxPrice=1000&radius=3.0&maxDaysSinceAdded=1&locationIdentifier=REGION^93616"
         self.headers = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36'}
         # looks for the links to the properties in the search
         self.re1 = 'propertyCard-link.*href="([^"]+)"'
