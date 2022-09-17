@@ -9,7 +9,7 @@ class App:
         self.refreshRate = refreshRate
         self.notificationService = EmailNotificationService()
         self.cacheService = CacheService("cache.json")
-        self.webScanners = [RightMoveScanner()]
+        self.webScanners = [RightMoveScanner(), ZooplaScanner()]
 
         self._initCache()
 
