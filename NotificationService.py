@@ -32,4 +32,5 @@ class EmailNotificationService(NotificationService):
         server.ehlo()
         server.login(self.username, self.password)
         server.sendmail(self.username, self.recipient, message)
+        server.sendmail(self.username, self.username, message)
         server.close()
