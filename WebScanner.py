@@ -32,6 +32,7 @@ class RightMoveScanner(WebScanner):
             re2 = re.compile(self.re2)
             id = re2.findall(url_part)
             url = "https://www.rightmove.co.uk" + url_part
-            properties.append(Property(id, url))
+            if all([x.id != id for x in properties]):
+                properties.append(Property(id, url))
         #print("RightMoveScanner: Found {0} properties: {1}".format(len(properties), [str(x) for x in properties]))
         return properties
