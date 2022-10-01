@@ -49,7 +49,7 @@ class App:
 print("App: Starting up...")
 
 stop = False
-app = App(120)
+app = App(30)
 
 if len(sys.argv) == 2 and sys.argv[1] == "clear":
     print("App: clearing cache...")
