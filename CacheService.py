@@ -26,7 +26,7 @@ class CacheService:
         print("CacheService: Saving cache to '{0}'".format(self._filename))
         try:
             with open(self._filename, "w") as file:
-                file.write(json.dumps(self._cache))
+                file.write(json.dumps(self._cache, sort_keys=True, indent=4))
         except:
             raise Exception("CacheService: Failed to save cache.")
         print("CacheService: Successfuly saved cache with {0} entries.".format(len(self._cache)))
