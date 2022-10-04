@@ -54,6 +54,6 @@ class OnTheMarkerScanner(RightMoveScanner):
 class S1HomesScanner(RightMoveScanner):
     def __init__(self):
         super().__init__()
-        self.url = "https://www.s1homes.com/rent/search/forrent_search_results.cgi?refine=1&verylocalstart=&area_id=&sortedby=&location=&minprice=0&maxprice=1000&bedrooms=1-3&bedroomsMin=1&bedroomsMax=3&type=Flat&availability=Any&furnished=&whenpropadded=1&keywords=&submit=&all="
+        self.url = "https://www.s1homes.com/rent/search/forrent_search_results.cgi?refine=1&verylocalstart=100&area_id=&sortedby=&location=100&minprice=0&maxprice=1000&bedrooms=1&bedroomsMin=1&bedroomsMax=&type=&availability=Any&furnished=&whenpropadded=1&keywords=&submit="
         self.base_url = "https://www.s1homes.com"
         self.re1 = 'href="(\/Flats-for-rent\/[^"]+\.shtml)"'
