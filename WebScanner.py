@@ -57,3 +57,17 @@ class S1HomesScanner(RightMoveScanner):
         self.url = "https://www.s1homes.com/rent/search/forrent_search_results.cgi?refine=1&verylocalstart=100&area_id=&sortedby=&location=100&minprice=0&maxprice=1000&bedrooms=1&bedroomsMin=1&bedroomsMax=&type=&availability=Any&furnished=&whenpropadded=1&keywords=&submit="
         self.base_url = "https://www.s1homes.com"
         self.re1 = 'href="(\/Flats-for-rent\/[^"]+\.shtml)"'
+
+class TayLettingsScanner(RightMoveScanner):
+    def __init__(self):
+        super().__init__()
+        self.url = "https://www.tayletting.co.uk/property/?wppf_max_bedrooms=3&wppf_max_rent=1000&wppf_branch=smepro_1&wppf_soldlet=show&wppf_orderby=price-desc&wppf_view=list&wppf_lat=0&wppf_lng=0&wppf_radius=10&wppf_records=12"
+        self.base_url = "https://www.tayletting.co.uk"
+        self.re1 = 'itemtype="http:\/\/schema\.org\/Residence".+href="([^"]+)"'
+
+class DJAlexanderScanner(RightMoveScanner):
+    def __init__(self):
+        super().__init__()
+        self.url = "https://djalexander.co.uk/properties/?filter_search_type=to-let&filter_availablily_filter_54724=1563753600-1667001600&filter_region=glasgow&filter_bedrooms_328=1-3&filter_filterprice_4960=250-1000"
+        self.base_url = "https://djalexander.co.uk"
+        self.re1 = '<a href="https:\/\/djalexander\.co\.uk([^"]+)" aria-label'

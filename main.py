@@ -8,9 +8,13 @@ from datetime import datetime
 class App:
     def __init__(self, refreshRate):
         self.refreshRate = refreshRate
-        self.notificationService = EmailNotificationService()
+        self.notificationService = ConsoleNotificationService()#EmailNotificationService()
         self.cacheService = CacheService("cache.json")
-        self.webScanners = [RightMoveScanner(), ZooplaScanner(), OnTheMarkerScanner(), S1HomesScanner()]
+        self.webScanners = [
+            RightMoveScanner(), ZooplaScanner(),
+            OnTheMarkerScanner(), S1HomesScanner(),
+            TayLettingsScanner(), DJAlexanderScanner()
+            ]
 
         self._initCache()
 
