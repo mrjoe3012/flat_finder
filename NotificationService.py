@@ -20,9 +20,9 @@ class ConsoleNotificationService(NotificationService):
 class EmailNotificationService(NotificationService):
     def __init__(self):
         self.consoleNotificationService = ConsoleNotificationService()
-        self.username = "josephagrane@gmail.com"
-        self.password = "zzihnzkhekefesch"
-        self.recipient = "flisslipscomb@gmail.com"
+        self.username = "email@gmail.com"
+        self.password = "password"
+        self.recipient = "recipient@gmail.com"
 
     def notify(self, text):
         print("EmailNotificationService: Sending email notification...")
