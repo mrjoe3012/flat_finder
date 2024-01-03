@@ -11,9 +11,9 @@ class App:
         self.notificationService = EmailNotificationService()
         self.cacheService = CacheService("cache.json")
         self.webScanners = [
-            RightMoveScanner(), ZooplaScanner(),
+            RightMoveScanner(), 
             OnTheMarkerScanner(), S1HomesScanner(),
-            TayLettingsScanner(), DJAlexanderScanner()
+            DJAlexanderScanner()
             ]
 
         self._initCache()

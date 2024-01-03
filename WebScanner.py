@@ -7,7 +7,7 @@ class WebScanner(ABC):
     def __init__(self):
         self.base_url = ""
         self.url = ""
-        self.headers = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36'}
+        self.headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 6.2; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/32.0.1667.0 Safari/537.36'}
         self.re1 = ""
 
     def _getHTML(self):
@@ -33,28 +33,28 @@ class WebScanner(ABC):
 class RightMoveScanner(WebScanner):
     def __init__(self):
         super().__init__()
-        self.url = "https://www.rightmove.co.uk/property-to-rent/find.html?locationIdentifier=REGION%5E93616&maxBedrooms=10&minBedrooms=1&maxPrice=1000&radius=3.0&propertyTypes=&maxDaysSinceAdded=1&includeLetAgreed=false&mustHave=&dontShow=&furnishTypes=&keywords="
+        self.url = "https://www.rightmove.co.uk/property-to-rent/find.html?searchType=RENT&locationIdentifier=STATION%5E4394&insId=1&radius=3.0&minPrice=&maxPrice=1000&minBedrooms=1&maxBedrooms=&displayPropertyType=&maxDaysSinceAdded=1&sortByPriceDescending=&_includeLetAgreed=on&primaryDisplayPropertyType=&secondaryDisplayPropertyType=&oldDisplayPropertyType=&oldPrimaryDisplayPropertyType=&letType=&letFurnishType=&houseFlatShare="
         self.base_url = "https://rightmove.co.uk"
         self.re1 = 'propertyCard-link.*href="([^"]+)"'
 
 class ZooplaScanner(RightMoveScanner):
     def __init__(self):
         super().__init__()
-        self.url = "https://www.zoopla.co.uk/to-rent/property/2-bedrooms/glasgow-city-centre/?price_frequency=per_month&price_max=1000&q=Glasgow+City+Centre%2C+Glasgow&radius=3&search_source=refine&beds_min=1&added=24_hours&view_type=list"
+        self.url = "https://www.zoopla.co.uk/to-rent/property/station/rail/haymarket/?added=24_hours&beds_min=1&price_frequency=per_month&price_max=1000&q=Haymarket%20Station%2C%20Edinburgh&radius=3&results_sort=newest_listings&search_source=to-rent"
         self.base_url = "https://zoopla.co.uk"
         self.re1 = 'href="(\/to-rent\/details\/[0-9]+\/[^"]+)"'
 
 class OnTheMarkerScanner(RightMoveScanner):
     def __init__(self):
         super().__init__()
-        self.url = "https://www.onthemarket.com/to-rent/1-bed-flats-apartments/glasgow-west-end/?max-price=1000&radius=4.0&recently-added=24-hours"
+        self.url = "https://www.onthemarket.com/to-rent/property/haymarket-station/?let-length=long-term&max-price=1000&min-bedrooms=1&prop-types=bungalows&prop-types=detached&prop-types=farms-land&prop-types=flats-apartments&prop-types=mobile-park-homes&prop-types=semi-detached&prop-types=terraced&radius=3.0&recently-added=24-hours"
         self.base_url = "https://onthemarket.com"
         self.re1 = 'href="(\/details\/[^"]+)"'
 
 class S1HomesScanner(RightMoveScanner):
     def __init__(self):
         super().__init__()
-        self.url = "https://www.s1homes.com/rent/search/forrent_search_results.cgi?refine=1&verylocalstart=100&area_id=&sortedby=&location=100&minprice=0&maxprice=1000&bedrooms=1&bedroomsMin=1&bedroomsMax=&type=&availability=Any&furnished=&whenpropadded=1&keywords=&submit="
+        self.url = "https://www.s1homes.com/rent/search/forrent_search_results.cgi?refine=0&veryLocal=779&verylocals=&bedrooms=1&keywords=&location=178&locationText=Haymarket%2C+City+Centre+%28Edinburgh%29&minprice=0&maxprice=1000&bedroomsMin=1&type=&btnSearch="
         self.base_url = "https://www.s1homes.com"
         self.re1 = 'href="(\/Flats-for-rent\/[^"]+\.shtml)"'
 
@@ -68,6 +68,6 @@ class TayLettingsScanner(RightMoveScanner):
 class DJAlexanderScanner(RightMoveScanner):
     def __init__(self):
         super().__init__()
-        self.url = "https://djalexander.co.uk/properties/?filter_search_type=to-let&filter_availablily_filter_54724=1563753600-1667001600&filter_region=glasgow&filter_bedrooms_328=1-3&filter_filterprice_4960=250-1000"
+        self.url = "https://www.djalexander.co.uk/property/to-rent/in-edinburgh/1-and-more-bedrooms/below-1000/"
         self.base_url = "https://djalexander.co.uk"
         self.re1 = '<a href="https:\/\/djalexander\.co\.uk([^"]+)" aria-label'
